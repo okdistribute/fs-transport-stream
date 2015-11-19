@@ -1,7 +1,7 @@
 {
   "name": "fs-transport-stream",
   "version": "1.0.0",
-  "description": "execute a command somewhere else on the fs ",
+  "description": "Execute a command somewhere else on the fs ",
   "main": "index.js",
   "scripts": {
     "test": "node test"
