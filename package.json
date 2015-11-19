@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/karissa/fs-transport-stream/issues"
   },
-  "homepage": "https://github.com/karissa/fs-transport-stream#readme"
+  "homepage": "https://github.com/karissa/fs-transport-stream#readme",
+  "dependencies": {
+    "duplexify": "^3.4.2",
+    "execspawn": "^0.2.1"
+  },
+  "devDependencies": {
+    "concat-stream": "^1.5.1",
+    "tape": "^4.2.2"
+  }
 }
