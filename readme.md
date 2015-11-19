@@ -8,10 +8,10 @@ Execute a command somewhere else on the fs and get results back as a stream.
 npm install fs-transport-stream
 ```
 
-#### `fs-transport-stream(cmd, filepath)`
+#### `fs-transport-stream(filepath, cmd)`
 
 ```js
 var transport = require('fs-transport-stream')
-var stream1 = transport('ls', 'file://path/to/file')
+var stream1 = transport('file://path/to/file', 'ls')
 stream1.on('data', console.log)
 ```

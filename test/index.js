@@ -7,7 +7,7 @@ tape('file transport', function (t) {
   t.plan(3)
 
   var cmd = 'node ' + JSON.stringify(path.join(__dirname, 'fixtures', 'spawn.js'))
-  var stream1 = transport(cmd, '.')
+  var stream1 = transport('.', cmd)
 
   stream1.pipe(concat(function (buf) {
     var obj = JSON.parse(buf.toString())
@@ -21,7 +21,7 @@ tape('file transport', function (t) {
   stream1.write('world\n')
   stream1.end()
 
-  var stream2 = transport(cmd, 'file://' + path.join(__dirname, 'fixtures'))
+  var stream2 = transport('file://' + path.join(__dirname, 'fixtures'), cmd)
 
   stream2.pipe(concat(function (buf) {
     var obj = JSON.parse(buf.toString())
@@ -34,7 +34,7 @@ tape('file transport', function (t) {
   stream2.write('world')
   stream2.end()
 
-  var stream3 = transport(cmd, '/does/not/exist')
+  var stream3 = transport('/does/not/exist', cmd)
 
   stream3.on('error', function (err) {
     t.ok(err, 'had error')
@@ -45,7 +45,7 @@ tape('spawned program does not exist', function (t) {
   t.plan(1)
 
   var cmd = '/i/am/not/a/program'
-  var stream = transport(cmd, 'file://' + path.join(__dirname, 'fixtures'))
+  var stream = transport('file://' + path.join(__dirname, 'fixtures'), cmd)
 
   stream.on('error', function (err) {
     t.ok(err, 'had error')

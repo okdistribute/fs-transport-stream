@@ -2,7 +2,7 @@ var fs = require('fs')
 var duplexify = require('duplexify')
 var execspawn = require('execspawn')
 
-module.exports = function (cmd, transport) {
+module.exports = function (transport, cmd) {
   transport = transport.replace(/^file:\/\//, '')
   var stream = duplexify()
 
